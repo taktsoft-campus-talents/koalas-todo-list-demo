@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function App() {
   // Aus Gründen der Vereinfachung verwenden wir title statt einer eindeutigen id!!
+  // Bei Todos mit gleichem Titel wird die Logik nicht funktionieren!
   // todos: [{title: "Küche putzen", isChecked: true}, ...]
 
   const [todos, setTodos] = useState([]);
@@ -34,9 +35,13 @@ function App() {
 
   // Delete
   function handleDelete(title) {
-    console.log("title", title);
-    setTodos(todos.filter((todo) => (todo.title === title ? false : true)));
     // Aufgabe: todo mit dem übergebenen title aus Array löschen
+    setTodos(
+      todos.filter((todo) => {
+        console.log(todo.title, title, todo.title === title ? false : true);
+        return todo.title === title ? false : true;
+      })
+    );
   }
 
   return (
@@ -55,7 +60,7 @@ function App() {
           />
         );
       })}
-      {/* <p>{JSON.stringify(todos)}</p> */}
+      <p>{JSON.stringify(todos)}</p>
     </>
   );
 }

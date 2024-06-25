@@ -6,6 +6,7 @@ export function CreateTodoForm({ onCreateTodo }) {
   const [newTodoTitle, setNewTodoTitle] = useState("");
   function handleSubmit(event) {
     event.preventDefault();
+    setNewTodoTitle("");
     onCreateTodo(newTodoTitle);
   }
   return (
