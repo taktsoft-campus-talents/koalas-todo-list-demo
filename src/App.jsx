@@ -2,6 +2,7 @@ import "./App.css";
 import { CreateTodoForm } from "./components/CreateTodoForm";
 import { TodoItem } from "./components/TodoItem";
 import { useState } from "react";
+import { ProgressBar } from "./components/ProgressBar";
 
 function App() {
   // Aus Gründen der Vereinfachung verwenden wir title statt einer eindeutigen id!!
@@ -47,6 +48,7 @@ function App() {
   return (
     <>
       <h1>Todo List</h1>
+      <ProgressBar currentQuestion={3} numQuestions={7} />
       <CreateTodoForm onCreateTodo={handleCreateTodo} />
       {todos.map((todo) => {
         return (
